@@ -19,6 +19,13 @@ const FIGHT_BANNER_MS = 600;
 
 const SHADOW_PURPLE = '#A855F7';
 
+/** Keeps light HUD text readable against the bright arena sky. */
+const TEXT_OUTLINE = {
+  textShadowColor: 'rgba(20,10,40,0.85)',
+  textShadowOffset: { width: 0, height: 1 },
+  textShadowRadius: 4,
+} as const;
+
 // -----------------------------------------------------------------------------
 // Fighter status (health, energy, round wins)
 // -----------------------------------------------------------------------------
@@ -283,8 +290,9 @@ const styles = StyleSheet.create({
   },
   barLabel: {
     fontSize: 12,
-    fontWeight: '800',
+    fontWeight: '900',
     letterSpacing: 1.5,
+    ...TEXT_OUTLINE,
   },
   pips: {
     flexDirection: 'row',
@@ -338,6 +346,7 @@ const styles = StyleSheet.create({
     fontSize: 9,
     fontWeight: '900',
     letterSpacing: 1.5,
+    ...TEXT_OUTLINE,
   },
   centerColumn: {
     alignItems: 'center',
@@ -350,6 +359,7 @@ const styles = StyleSheet.create({
     fontVariant: ['tabular-nums'],
     minWidth: 48,
     textAlign: 'center',
+    ...TEXT_OUTLINE,
   },
   timerLow: {
     color: '#F87171',
@@ -395,6 +405,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     letterSpacing: 3,
     marginTop: -6,
+    ...TEXT_OUTLINE,
   },
   center: {
     ...StyleSheet.absoluteFill,

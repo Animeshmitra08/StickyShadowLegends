@@ -40,16 +40,17 @@ function FighterShadow({ char, groundY }: { char: CharacterState; groundY: numbe
       y={groundY - 3}
       width={w}
       height={6}
-      color={`rgba(0,0,0,${0.5 - lift * 0.3})`}
+      color={`rgba(91,33,182,${0.35 - lift * 0.2})`}
     />
   );
 }
 
 const SPARK_STYLE: Record<HitSpark['kind'], { size: number; ring: string; core: number }> = {
+  // Bright rings so sparks pop against the mid-tone sky.
   hit: { size: 13, ring: '#FFF3B0', core: 4 },
-  heavy: { size: 20, ring: '#FFF3B0', core: 6 },
-  block: { size: 10, ring: '#7DD3FC', core: 0 },
-  shadow: { size: 34, ring: '#C084FC', core: 9 },
+  heavy: { size: 20, ring: '#FFFFFF', core: 6 },
+  block: { size: 10, ring: '#67E8F9', core: 0 },
+  shadow: { size: 34, ring: '#F5D0FE', core: 9 },
 };
 
 function Spark({ spark }: { spark: HitSpark }) {
@@ -58,7 +59,7 @@ function Spark({ spark }: { spark: HitSpark }) {
   return (
     <Group opacity={1 - t}>
       {spark.kind === 'shadow' && (
-        <Circle cx={spark.x} cy={spark.y} r={10 + t * 26} color="#7E22CE" opacity={0.6}>
+        <Circle cx={spark.x} cy={spark.y} r={10 + t * 26} color="#A855F7" opacity={0.6}>
           <BlurMask blur={10} style="normal" />
         </Circle>
       )}
@@ -97,7 +98,7 @@ export function Arena({ state, width, height }: ArenaProps) {
           <LinearGradient
             start={vec(0, 0)}
             end={vec(0, groundScreenY)}
-            colors={['#140B2E', '#3D1F56', '#A23E5E', '#F28C4F']}
+            colors={['#818CF8', '#A78BFA', '#F472B6', '#FB923C']}
           />
         </Rect>
 
@@ -111,15 +112,14 @@ export function Arena({ state, width, height }: ArenaProps) {
           y={groundScreenY}
           width={width + SHAKE_MARGIN * 2}
           height={height - groundScreenY + SHAKE_MARGIN}
-          color="#150C1F"
+          color="#F5A97F"
         />
         <Rect
           x={-SHAKE_MARGIN}
           y={groundScreenY}
           width={width + SHAKE_MARGIN * 2}
           height={Math.max(1, 1.5 * scale)}
-          color="#FF9E6D"
-          opacity={0.6}
+          color="#FDE047"
         />
 
         <Group transform={world}>

@@ -31,15 +31,19 @@ interface SceneryProps {
   groundY: number;
 }
 
+/**
+ * Mid-tone palette — the fighters are drawn in near-black, so no backdrop
+ * layer goes dark enough to swallow them, but it isn't washed out either.
+ */
 export function Scenery({ sunX, groundY }: SceneryProps) {
   return (
     <>
-      <Circle cx={sunX} cy={groundY - 10} r={84} color="#FFC97A" opacity={0.15} />
-      <Circle cx={sunX} cy={groundY - 10} r={64} color="#FFC97A" opacity={0.85} />
-      <Path path={FAR_RIDGE} color="#2A1440" opacity={0.85} />
-      <Path path={TORII} color="#1A0B28" opacity={0.9} />
-      <Path path={NEAR_RIDGE} color="#1E0E2E" />
-      <Path path={PAGODA} color="#140A1F" />
+      <Circle cx={sunX} cy={groundY - 10} r={84} color="#FEF08A" opacity={0.4} />
+      <Circle cx={sunX} cy={groundY - 10} r={64} color="#FDE047" opacity={0.95} />
+      <Path path={FAR_RIDGE} color="#C084FC" opacity={0.85} />
+      <Path path={TORII} color="#EC4899" />
+      <Path path={NEAR_RIDGE} color="#A78BFA" />
+      <Path path={PAGODA} color="#8B5CF6" />
     </>
   );
 }

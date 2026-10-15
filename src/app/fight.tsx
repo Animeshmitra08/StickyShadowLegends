@@ -34,6 +34,6 @@ export default function FightScreen() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#150C1F',
+    backgroundColor: '#F5A97F',
   },
 });
